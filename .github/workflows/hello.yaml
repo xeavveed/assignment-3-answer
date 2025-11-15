@@ -1,0 +1,19 @@
+name: hello
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: hello
+        run:
+          echo "Hello"
+          echo secrets: ${{secrets.test_secret}}
+          echo vars: ${{vars.test_var}}
